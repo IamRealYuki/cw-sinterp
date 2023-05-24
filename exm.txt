@@ -1,0 +1,11 @@
+read -i n
+read -i min
+i = 0
+while i < n 
+ read -i x
+ if min > x 
+ min = x
+ fi
+ i = i + 1
+done
+print min

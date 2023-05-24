@@ -1,0 +1,19 @@
+i = 3 + 5
+read -i min
+if i < min
+    read -i p
+    if min == p
+        read -f t
+        print t
+        if t == 4.020000
+            read -f d
+    fi
+    else 
+    read -i m
+    fi
+while i > min
+    read -i p
+    print p
+    min = min + 1
+    print min
+done
