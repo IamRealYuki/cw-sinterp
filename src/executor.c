@@ -1,9 +1,11 @@
 #include <stdbool.h>
-#include "executor.h"
-#include "clean.h"
+#include <executor.h>
+#include <clean.h>
 
 int idenf(char *thing, struct variables *vars)
 {
+    if(thing[0] == '"')
+        return 3;
     for (int i = 0; i < 20; i++)
     {
         if (strcmp(thing, vars->ivars_name[i]) == 0)
@@ -410,9 +412,13 @@ void print(struct token *list, struct token *list_beg, struct variables *vars)
         printf("\nПеременная %s: %f\n", list->tokens[1], get_val_f(list->tokens[1], vars));
     else
     {
-        printf("Can not print");
-        delete_vars(vars);
-        clean(list_beg);
-        exit(1);
+        int i = 0;
+        while (list->tokens[1][i + 1] != '\n' && list->tokens[1][i + 1] != '\0')
+        {
+            list->tokens[1][i] = list->tokens[1][i + 1];
+            i++;
+        }
+        list->tokens[1][i] = list->tokens[1][i + 1];
+        printf("%s\n", list->tokens[1]);
     }
 }

@@ -1,6 +1,6 @@
-#include "lexer.h"
-#include "executor.h"
-#include "clean.h"
+#include <lexer.h>
+#include <executor.h>
+#include <clean.h>
 
 void init(struct variables *vars)
 {
@@ -26,7 +26,7 @@ int main(int argc, char **argv)
     struct token *list_beg = list;
     struct variables *vars = (struct variables *)malloc(sizeof(struct variables));
     init(vars);
-    lexemize(argv[1], list);
+    lexemize("print.txt", list);
     int enclosure = 0;
     while (list->next != NULL)
     {

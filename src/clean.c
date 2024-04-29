@@ -1,7 +1,6 @@
 #include <stdio.h>
-
-#include "lexer.h"
-#include "executor.h"
+#include <lexer.h>
+#include <executor.h>
 
 void clean(struct token *list)
 {
